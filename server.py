@@ -46,11 +46,11 @@ MOST_LOVED_MELONS = {
 def top_melons():  
     user = request.args.get("person")  
     if user == None:
-        return redirect("/homepage")
+        return redirect("/")
     
     return render_template("top-melons.html", melon_list=MOST_LOVED_MELONS,person=user,)
 
-@app.route('/homepage')
+@app.route('/love-melon'methods=['POST'])
 def home_page():
     """Ask user for name"""
     
