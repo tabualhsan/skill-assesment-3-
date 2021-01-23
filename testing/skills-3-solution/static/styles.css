@@ -1,0 +1,31 @@
+body {
+    background-color: #ffe5b2;
+}
+
+h1 {
+    color: #af2900;
+    font-family: sans-serif;
+
+}
+
+img {
+    height: 200px;
+    width: 200px;
+}
+
+.title-img {
+    display: block;
+    border: 3px green;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.melon-div {
+    display: inline-block;
+    padding: 10px;
+    width: 205px;
+}
+
+.melon-div img {
+    border: solid green 2px;
+}

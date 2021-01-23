@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Welcome, {{ session['name'] }}</h1>
+
+    {% for melon in melons %}
+
+        <div class='melon-div'>
+            <h3>{{ session['name'] }}, this is a {{melons[melon]['name']}}</h3>
+            <h2>Loved {{melons[melon]['num_loves']}} times.</h2>
+            <img src='{{melons[melon]["img"]}}'>
+        </div>
+
+    {%endfor%}
+
+    <form action='/love-melon' method='post'>
+        <h3>Love a melon</h3>
+        <select name='melon'>
+        {% for melon in melons %}
+            <option name='{{melon}}' value='{{melon}}'>
+                {{ melons[melon]['name'] }}
+            </option>
+            {% endfor %}
+        </select>
+        <input type='submit'>
+    </form>
+{% endblock %}
