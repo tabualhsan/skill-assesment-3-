@@ -5,6 +5,13 @@ img {
 .img-border{
   border: 1px solid green;
 }
+
+.center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 .melon-div {
   display: inline-block;
   padding: 10px;
