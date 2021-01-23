@@ -1,15 +1,17 @@
-<!doctype html>
-<html>
-<head>
-  <title>Top Melons</title>
-  <link rel="stylesheet" type="text/css" href="/static/styles.css">
-</head>
-<body>
-  <!-- Create a div for every Most Loved Melon using a Jinja for-loop -->
-  <div class="melon-div">
-    <h3>Texas Golden Watermelon</h3>
-    <h2>Loved 598 times.</h2>
-    <img src="http://www.rareseeds.com/assets/1/14/DimThumbnail/Texas-Golden-2-Watermelon-web.jpg">
-  </div>
-</body>
-</html>
+{% extends'base.html'%}
+    {% block title %}<title>Top Melons</title>{% endblock %}
+{% block body %}  
+    <h1>Welcome, {{ person }}! </h1>
+    <!-- Create a div for every Most Loved Melon using a Jinja for-loop -->
+    {%for melon in melon_list%}
+    
+    <div class="melon-div">
+      <h3>{{person}}, this is a {{ melon_list[melon].name }}</h3>
+      <h2>Loved {{melon_list[melon].num_loves}} times.</h2>
+      <img class="img-border" src= {{melon_list[melon].img}}>
+     
+
+  
+    </div>
+    {%endfor%}
+{% endblock %}

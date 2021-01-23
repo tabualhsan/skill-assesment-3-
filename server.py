@@ -17,6 +17,7 @@ app.jinja_env.auto_reload = True
 # Required to use Flask sessions and the debug toolbar
 app.secret_key = 'ABC'
 
+
 MOST_LOVED_MELONS = {
     'cren': {
         'img': 'http://www.rareseeds.com/assets/1/14/DimRegular/crenshaw.jpg',
@@ -41,7 +42,19 @@ MOST_LOVED_MELONS = {
 }
 
 
-# REPLACE THIS WITH YOUR ROUTES
+@app.route('/top-melons')
+def top_melons():  
+    user = request.args.get("person")  
+    if user == None:
+        return redirect("/homepage")
+    
+    return render_template("top-melons.html", melon_list=MOST_LOVED_MELONS,person=user,)
+
+@app.route('/homepage')
+def home_page():
+    """Ask user for name"""
+    
+    return render_template("homepage.html")
 
 
 if __name__ == '__main__':

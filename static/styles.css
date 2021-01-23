@@ -2,9 +2,22 @@ img {
   height: 200px;
   width: 200px;
 }
-
+.img-border{
+  border: 1px solid green;
+}
 .melon-div {
   display: inline-block;
   padding: 10px;
   width: 205px;
+  font-family: sans-serif;
+  border: green;
+  
+}
+
+body {background-color:palegoldenrod ;}
+h1,h2,h3{
+  font-family: sans-serif;
+  color: red;
+
+
 }
