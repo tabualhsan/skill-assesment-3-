@@ -47,15 +47,25 @@ def top_melons():
     user = request.args.get("person")  
     if user == None:
         return redirect("/")
+    session['person'] = user
     
-    return render_template("top-melons.html", melon_list=MOST_LOVED_MELONS,person=user,)
+    return render_template("top-melons.html", melon_list=MOST_LOVED_MELONS,person=user)
 
-@app.route('/love-melon'methods=['POST'])
+@app.route('/')
 def home_page():
     """Ask user for name"""
     
     return render_template("homepage.html")
 
+@app.route('/love-melon' , methods=['POST'])
+def num_loves():
+    love_melon = request.form.get("Melon")
+    
+    MOST_LOVED_MELONS[love_melon]['num_loves'] = MOST_LOVED_MELONS[love_melon]['num_loves'] + 1
+    print(MOST_LOVED_MELONS[love_melon]['num_loves'])
+    print(session['person'])
+    
+    return render_template('thank-you.html', melon_list=MOST_LOVED_MELONS)
 
 if __name__ == '__main__':
     # We have to set debug=True here, since it has to be True at the

@@ -9,11 +9,21 @@
       <h3>{{person}}, this is a {{ melon_list[melon].name }}</h3>
       <h2>Loved {{melon_list[melon].num_loves}} times.</h2>
       <img class="img-border" src= {{melon_list[melon].img}}>
+     
     
     </div>
 
-    <form>
-      
-    </form>
     {%endfor%}
+
+    <form action = "/love-melon" method="POST">
+    <select name="Melon" action ="dropdown">
+
+      {%for melon in melon_list%}
+      <option value = "{{melon}}">{{ melon_list[melon].name }}</option>
+      {%endfor%}
+
+    </select>
+    <input type="submit" value="Submit">
+
+    </form>
 {% endblock %}
